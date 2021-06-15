@@ -22,7 +22,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>embedded</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -30,13 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program - ModDev\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
+    <Reference Include="$(K17)\KSP_x64_Data\Managed\Assembly-CSharp.dll">
+      <private>false</private>
     </Reference>
-    <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program - ModDev\KSP_x64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    <Reference Include="$(K17)\KSP_x64_Data\Managed\Assembly-CSharp-firstpass.dll">
+      <private>false</private>
+    </Reference>
+    <Reference Include="$(K17)\KSP_x64_Data\Managed\UnityEngine.dll">
+      <private>false</private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,20 +45,16 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>F:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program - ModDev\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NameGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
+  <!-- <PropertyGroup>
     <PostBuildEvent>"D:\OneDrive\Documents\pdb2mdb\pdb2mdb.exe" "$(TargetFileName)"
-xcopy /Y "$(TargetPath)" "F:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program - ModDev\GameData\NameGenerator\"
-xcopy /Y "$(TargetDir)$(TargetName).pdb" "F:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program - ModDev\GameData\NameGenerator\"
-xcopy /Y "$(TargetDir)$(TargetName).dll.mdb" "F:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program - ModDev\GameData\NameGenerator\"</PostBuildEvent>
-  </PropertyGroup>
+xcopy /Y "$(TargetPath)" "$(K17)\GameData\NameGenerator\"
+xcopy /Y "$(TargetDir)$(TargetName).pdb" "$(K17)\GameData\NameGenerator\"
+xcopy /Y "$(TargetDir)$(TargetName).dll.mdb" "$(K17)\GameData\NameGenerator\"</PostBuildEvent>
+  </PropertyGroup> -->
 </Project>
